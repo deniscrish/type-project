@@ -1,0 +1,71 @@
+// Переменные
+$fz: 30px;
+$color_1: red;
+$color_2: blue;
+$color_3: green;
+
+// Шаблоны
+%type-border {
+  font-size: 50px;
+  border-bottom: 10px dashed purple;
+}
+
+// Миксины
+@mixin fontz($f, $c) {
+  font-size: $f;
+  color: $c;
+}
+
+.about-page {
+  color: $color_1;
+}
+
+// Вложенность
+.about-page_link {
+  color: $color_2;
+  text-decoration: underline;
+  &:hover {
+    color: $color_3;
+  }
+
+  @extend %type-border;
+}
+
+.about-page_block1 {
+  // Переменная
+  font-size: $fz;
+
+  // Шаблон
+  @extend %type-border;
+}
+
+.about-page_block2 {
+  font-size: $fz;
+}
+
+.about-page_block__small-text {
+  font-size: 20px;
+}
+
+.about-page_block3 {
+  // Миксин
+  @include fontz(20px, blue);
+}
+
+.about-page_block4 {
+  // Миксин
+  @include fontz(30px, purple);
+
+  // Математика
+  background-color: gray;
+  width: 300px / 960px * 100%;
+}
+
+.navigation-focus {
+  &:hover {
+    color: rgb(3, 67, 243);
+  }
+  &:focus {
+    color: rgb(0, 0, 172);
+  }
+}
