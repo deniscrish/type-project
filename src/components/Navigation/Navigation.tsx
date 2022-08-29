@@ -12,6 +12,7 @@ export const Navigation = () => {
           Users
         </Link>
         <Link to="/about" className="mr-2 navigation-focus">About</Link>
+        <Link to="/todo" className="mr-2 navigation-focus">TodoList</Link>
       </span>
     </nav>
   );
